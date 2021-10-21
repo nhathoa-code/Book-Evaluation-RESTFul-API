@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="fs.js"></script>
+    <link rel="stylesheet" href="book.css">    
+    <title>Book</title>
+</head>
+<body>
+    <div id="container">
+        <div id="book-info" class="row g-0">
+            <div class="col-md-6">
+                <img src="" alt="">
+            </div>
+            <div class="col-md-6">
+                <p id="isbn">ISBN: <span></span></p>
+                <p id="title">Title: <span></span></p>
+                <p id="author">Author: <span></span></p>
+                <p id="published">Published: <span></span></p>
+                <a id="review-btn" href="javascript:avoid(0)" data-bs-toggle="modal" data-bs-target="#reviewModal">Review</a>
+            </div>
+        </div>
+        <div class="row g-0 mt-5">
+            <div id="box-point" class="col-md-4">
+                <div>
+                    <span id="rating-point"></span>
+                    <span>/5</span>
+                </div>
+                <div class="rating-box">
+                    <div class="rating" style="width:0%"></div>
+                </div>
+                <span>(<span id="review-count"></span> đánh giá)</span>
+            </div>
+            <div id="rating-chart" class="col-md-8 px-3">
+                <div>
+                    <span>5 star</span>
+                    <div class="review-rating review-rating-5">
+                        <div style="width: 0%;"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+                <div>
+                    <span>4 star</span>
+                    <div class="review-rating review-rating-4">
+                        <div style="width: 0%;"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+                <div>
+                    <span>3 star</span>
+                    <div class="review-rating review-rating-3">
+                        <div style="width: 0%;"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+                <div>
+                    <span>2 star</span>
+                    <div class="review-rating review-rating-2">
+                        <div style="width: 0%;"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+                <div>
+                    <span>1 star</span>
+                    <div class="review-rating review-rating-1">
+                        <div style="width: 0%;"></div>
+                    </div>
+                    <span>0%</span>
+                </div>
+            </div>
+        </div>
+        <div id="review-box">
+        </div>
+    </div>
+    <!-- Show form for comment -->
+    <div class="modal" id="reviewModal" tabindex="-1" aria-labelledby="reviewLabel" aria-hidden="true">
+        <div style="margin-top: 5rem;" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Book review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        <div class="rating-choice mb-3">
+                            <span class="rating-item rating-item-1 active" data="1"></span>
+                            <span class="rating-item rating-item-2" data="2"></span>
+                            <span class="rating-item rating-item-3" data="3"></span>
+                            <span class="rating-item rating-item-4" data="4"></span>
+                            <span class="rating-item rating-item-5" data="5"></span>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Name" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" name="content" rows="3" placeholder="content..."></textarea>
+                        </div>    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="add-review" type="button" class="btn btn-primary">Add review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Alert if user already comment this book -->
+    <div class="modal" id="alertModal" tabindex="-1" aria-labelledby="alertLabel" aria-hidden="true">
+        <div class="modal-dialog" style="margin-top: 10rem;">
+            <div class="modal-content">
+                <div class="modal-header" style="border-bottom: none;">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="text-align: center;margin-bottom: 1rem;">
+                    You already comment this book !
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="book.js"></script>
+    <script>
+        if (getCookie("typeUser") == "") {
+                window.location = "login.html";
+            }
+    </script>
+</body>
+</html>

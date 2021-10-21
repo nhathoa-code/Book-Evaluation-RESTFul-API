@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#books-container .book img {
+  width: 65%;
+  height: auto;
+}
+#books-container .book {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+p {
+  margin: 0 !important;
+}
+
+.rating-box {
+  position: relative;
+  margin: 0 auto;
+  width: 70px;
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_gray.svg");
+  background-repeat: repeat-x;
+  height: 14px;
+}
+
+.rating-box .rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_yellow.svg");
+  background-repeat: repeat-x;
+  background-size: 14px 14px;
+  height: 14px;
+}

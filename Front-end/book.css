@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+body {
+  background-color: #f0f0f0;
+}
+#container {
+  width: 45%;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: #fff;
+  min-height: 500px;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+
+.rating-box {
+  position: relative;
+  width: 70px;
+  margin: 0 auto;
+  margin-bottom: 0.2rem;
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_gray.svg");
+  background-repeat: repeat-x;
+  height: 14px;
+}
+#box-point {
+  text-align: center;
+}
+.rating-box .rating {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_yellow.svg");
+  background-repeat: repeat-x;
+  background-size: 14px 14px;
+  height: 14px;
+}
+#rating-point {
+  font-weight: 600;
+  font-size: 3rem;
+}
+#rating-point ~ span {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.review-rating {
+  width: 70%;
+  margin: 0 10px;
+  height: 5px;
+  background-color: #e6e6e6;
+}
+.review-rating > div {
+  background: #f6a500;
+  height: 100%;
+}
+
+#rating-chart > div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#review-box {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid grey;
+}
+#review-box p {
+  margin: 0;
+  padding: 0;
+}
+.review > div > p:nth-child(1) {
+  line-height: 0.8;
+  margin-bottom: 0.2rem !important;
+}
+#review-box .rating-box {
+  margin: 0;
+}
+.review {
+  margin-bottom: 2.5rem;
+}
+
+#review-btn {
+  color: #2489f4;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.rating-choice {
+  width: 125px;
+  height: 25px;
+  margin: 0 auto;
+  display: flex;
+}
+.rating-choice .active {
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_yellow.svg");
+  background-size: 25px 25px;
+}
+.rating-item {
+  background-image: url("https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_star_gray.svg");
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.modal-footer {
+  border: 0;
+}
