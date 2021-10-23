@@ -84,7 +84,9 @@ $("form").submit(function (e) {
                 </div>
                 <p class="title">${book.Title}</p>
                 <div class="rating-box">
-                    <div class="rating" style="width:100%"></div>
+                     <div class="rating" style="width:${
+                        book.Average_score * 20
+                     }%"></div>
                 </div>
                 <span class="evaluation">(${book.Average_score} lượt xem)</span>
             </div>`;
