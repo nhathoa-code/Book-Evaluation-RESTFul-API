@@ -112,8 +112,6 @@ function delete_book(isbn) {
             show form edit book
 ----------------------------------------*/
 function edit_book_form(isbn) {
-  console.log(isbn);
-  console.log(`http://127.0.0.1:8000/api/book/${isbn}`);
   axios({
     method: "GET",
     url: `http://127.0.0.1:8000/api/book/${isbn}`,
@@ -139,12 +137,13 @@ function edit_book_form(isbn) {
 ----------------------------------------*/
 $("#editModal form").submit(function (e) {
   e.preventDefault();
+  let isbn = $(`#editModal form input[name="isbn"]`).val();
   let Edit_form = document.querySelector("#editModal form");
   let formData = new FormData(Edit_form);
   formData.append("_method", "PUT");
   axios({
     method: "POST",
-    url: `http://127.0.0.1:8000/api/book/${book_isbn}`,
+    url: `http://127.0.0.1:8000/api/book/${isbn}`,
     headers: {
       "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
@@ -152,7 +151,7 @@ $("#editModal form").submit(function (e) {
     data: formData,
   })
     .then((res) => {
-      $(`tr[data-id=${book_isbn}]`).html(` <th scope="row">
+      $(`tr[data-id=${isbn}]`).html(` <th scope="row">
                       <img src="${res.data.image}" alt="">
                   </th>
                   <td>${res.data.isbn}</td>
